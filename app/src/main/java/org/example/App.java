@@ -4,11 +4,39 @@
 package org.example;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
-
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        // Create a bunch of objects that conform to the Cutie interface
+        Puppy puppy = new Puppy();
+        Kitty kitty = new Kitty();
+        PygmyMarmoset marmoset = new PygmyMarmoset();
+
+// Create a queue data structure
+        Queue<Cutie> queue = new Queue<>(5);
+
+// The size of the queue should equal zero since there are no objects in it
+        int queueSize = queue.size();
+        System.out.println("queue.size() = " + queueSize);
+
+// Add the cuties to the queue
+        queue.enqueue(puppy);
+        queue.enqueue(kitty);
+        queue.enqueue(marmoset);
+
+// The size of the queue should equal three since there are three objects in it
+        queue.size();
+        queueSize = queue.size();
+        System.out.println("queue.size() = " + queueSize);
+
+// The first dequeue should return the puppy
+        Cutie c1 = queue.dequeue();
+        System.out.println("queue.dequeue().description() = " + c1.description());
+
+// The second dequeue should return the kitty
+        Cutie c2 = queue.dequeue();
+        System.out.println("queue.dequeue().description() = " + c2.description());
+
+// The first dequeue should return the pygmy marmoset
+        Cutie c3 = queue.dequeue();
+        System.out.println("queue.dequeue().description() = " + c3.description());
     }
 }
